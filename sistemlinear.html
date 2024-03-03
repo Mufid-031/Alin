@@ -62,8 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'sistemlinear';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
-    <link rel="prev" title="Markdown Files" href="markdown.html" />
+    <link rel="prev" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -547,6 +546,87 @@ x_1+2x_2+3x_3=9\\
 </div>
 </div>
 </div>
+<p>Dari matriks terakhir tersebut sudah memenuhi ketiga kriteria bentuk eselon baris. Selanjutnya tinggal mengubahnya kembali menjadi sistem persamaan linear
+$<span class="math notranslate nohighlight">\(
+x_1+2x_2+3x_3=9\\
+x_2+3.28571429x_3=7.57142857\\
+x_3=2\\
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#selesaikan persamaanya</span>
+<span class="n">x3</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x3:&#39;</span><span class="p">,</span> <span class="n">x3</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="mf">7.57142857</span><span class="o">-</span><span class="p">(</span><span class="mf">3.28571429</span><span class="o">*</span><span class="n">x3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x2:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x2</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">x3</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x1:&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x3: 2
+x2: 1
+x1: 1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="c1"># Koefisien untuk masing-masing persamaan bidang</span>
+<span class="n">a1</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">r1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span>
+<span class="n">a2</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">r2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">27</span>
+<span class="n">a3</span><span class="p">,</span> <span class="n">b3</span><span class="p">,</span> <span class="n">c3</span><span class="p">,</span> <span class="n">r3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+
+<span class="c1"># Buat data x, y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Buat grid x, y</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Hitung nilai z sesuai dengan persamaan bidang</span>
+<span class="n">Z1</span> <span class="o">=</span> <span class="p">(</span><span class="n">r1</span> <span class="o">-</span> <span class="n">a1</span><span class="o">*</span><span class="n">X</span> <span class="o">-</span> <span class="n">b1</span><span class="o">*</span><span class="n">Y</span><span class="p">)</span> <span class="o">/</span> <span class="n">c1</span>
+<span class="n">Z2</span> <span class="o">=</span> <span class="p">(</span><span class="n">r2</span> <span class="o">-</span> <span class="n">a2</span><span class="o">*</span><span class="n">X</span> <span class="o">-</span> <span class="n">b2</span><span class="o">*</span><span class="n">Y</span><span class="p">)</span> <span class="o">/</span> <span class="n">c2</span>
+<span class="n">Z3</span> <span class="o">=</span> <span class="p">(</span><span class="n">r3</span> <span class="o">-</span> <span class="n">a3</span><span class="o">*</span><span class="n">X</span> <span class="o">-</span> <span class="n">b3</span><span class="o">*</span><span class="n">Y</span><span class="p">)</span> <span class="o">/</span> <span class="n">c3</span>
+
+<span class="c1"># Plot persamaan bidang dalam tiga dimensi</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot bidang</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="c1"># Titik perpotongan</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">a1</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">c1</span><span class="p">],</span> <span class="p">[</span><span class="n">a2</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">c2</span><span class="p">],</span> <span class="p">[</span><span class="n">a3</span><span class="p">,</span> <span class="n">b3</span><span class="p">,</span> <span class="n">c3</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">r3</span><span class="p">])</span>
+<span class="n">intersect</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">intersect</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">intersect</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">intersect</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Titik Perpotongan&#39;</span><span class="p">)</span>
+
+<span class="c1"># Label sumbu</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan legenda</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Tampilkan plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/55665a78f4229f4edc5d12f9b61bc750947475742031f567f46a5c50842baed5.png" src="_images/55665a78f4229f4edc5d12f9b61bc750947475742031f567f46a5c50842baed5.png" />
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -579,22 +659,13 @@ x_1+2x_2+3x_3=9\\
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="markdown.html"
+       href="markdown-notebooks.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Markdown Files</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="markdown-notebooks.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Notebooks with MyST Markdown</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
