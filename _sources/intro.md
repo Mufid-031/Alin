@@ -12,4 +12,4 @@ Lihat konten saya berikut ini:
 
 Lihat website yang saya buat menggunakan next js berikut ini:
 
-* https://next-panda-store-dkmc.vercel.app/
+* https://next-panda-store-dkmc.vercel.app/home
