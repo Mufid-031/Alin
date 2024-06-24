@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Determinant Matrix &#8212; My sample book</title>
+    <title>Kofaktor &#8212; My sample book</title>
   
   
   
@@ -59,11 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'determinan';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'kofaktor';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Kofaktor" href="kofaktor.html" />
-    <link rel="prev" title="Matrix Invers" href="Matrix-Invers.html" />
+    <link rel="next" title="Transformation linier" href="transformationLinier.html" />
+    <link rel="prev" title="Determinant Matrix" href="determinan.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,8 +183,8 @@
 <li class="toctree-l1"><a class="reference internal" href="sistemlinear.html">Penyelesaian Sistem Linier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aljabarmatrix.html">Aljabar Matrix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Matrix-Invers.html">Matrix Invers</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Determinant Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kofaktor.html">Kofaktor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="determinan.html">Determinant Matrix</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Kofaktor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transformationLinier.html">Transformation linier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="UAS.html">UAS</a></li>
 </ul>
@@ -258,7 +258,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdeterminan.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fkofaktor.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -288,7 +288,7 @@
       
       
       
-      <li><a href="_sources/determinan.ipynb" target="_blank"
+      <li><a href="_sources/kofaktor.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -372,7 +372,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Determinant Matrix</h1>
+    <h1>Kofaktor</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -382,7 +382,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-sifat-matrix-determinan">Sifat-sifat Matrix determinan:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-kofaktor-matrix-ordo-5x5">Tugas Kofaktor matrix ordo 5x5</a></li>
 </ul>
             </nav>
@@ -395,254 +394,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="determinant-matrix">
-<h1>Determinant Matrix<a class="headerlink" href="#determinant-matrix" title="Link to this heading">#</a></h1>
-<p>Membuat matrix identitas dengan code fungsi python untuk membuktikan determinan matrix identitas (sifat-sifat determinan).</p>
-<section id="sifat-sifat-matrix-determinan">
-<h2>Sifat-sifat Matrix determinan:<a class="headerlink" href="#sifat-sifat-matrix-determinan" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Jika baris Matrix Identitas ditukar maka akan mengubah tanda dari Determinan Matrix Identitas tersebut</p></li>
-<li><p>Jika di dalam suatu Matrix ada baris atau yang merupakan kelipatan dari baris atau kolom yang lain maka det = 0.</p></li>
-<li><p>Jika ada Matrix kelipatan dari matrix lain maka determinan matrix tersebut adalah kelipatan pangkat ordo kali determinan matrix dari kelipatannya.</p></li>
-<li><p>Jika Determinan Matrix B adalah 2x Determinan Matrix A maka ada salah satu baris Matrix B yang menjadi 2x lipat baris Matrix A.</p></li>
-<li><p>Jika ada matrix yang berasal dari penjumlahan matrix A dan matrix B maka determinannya adalah penjumlahan dari matrix A dan Matrix B.</p></li>
-<li><p>Jika ada Matrix segitiga atas maka determinannya adalah perkalian anggota diagonal Matrix tersebut.</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
-<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
-<span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
-<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
-<span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">O</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
-<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix A (Identitas):</span><span class="se">\n</span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix B (Identitas):</span><span class="se">\n</span><span class="si">{</span><span class="n">B</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix C :</span><span class="se">\n</span><span class="si">{</span><span class="n">C</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix D :</span><span class="se">\n</span><span class="si">{</span><span class="n">D</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix E :</span><span class="se">\n</span><span class="si">{</span><span class="n">E</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix F :</span><span class="se">\n</span><span class="si">{</span><span class="n">F</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix G :</span><span class="se">\n</span><span class="si">{</span><span class="n">G</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix H :</span><span class="se">\n</span><span class="si">{</span><span class="n">H</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix I :</span><span class="se">\n</span><span class="si">{</span><span class="n">I</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix J :</span><span class="se">\n</span><span class="si">{</span><span class="n">J</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix K :</span><span class="se">\n</span><span class="si">{</span><span class="n">K</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix L :</span><span class="se">\n</span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix M :</span><span class="se">\n</span><span class="si">{</span><span class="n">M</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix N :</span><span class="se">\n</span><span class="si">{</span><span class="n">N</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix O :</span><span class="se">\n</span><span class="si">{</span><span class="n">O</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix P :</span><span class="se">\n</span><span class="si">{</span><span class="n">P</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix Q :</span><span class="se">\n</span><span class="si">{</span><span class="n">Q</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix R :</span><span class="se">\n</span><span class="si">{</span><span class="n">R</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix S :</span><span class="se">\n</span><span class="si">{</span><span class="n">S</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">det_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">det_B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-<span class="n">det_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
-<span class="n">det_D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
-<span class="n">det_E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
-<span class="n">det_F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
-<span class="n">det_G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-<span class="n">det_H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-<span class="n">det_I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
-<span class="n">det_J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">J</span><span class="p">)</span>
-<span class="n">det_K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
-<span class="n">det_L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-<span class="n">det_M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-<span class="n">det_N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="n">det_O</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">O</span><span class="p">)</span>
-<span class="n">det_P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
-<span class="n">det_Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
-<span class="n">det_R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-<span class="n">det_S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix A :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_A</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix B :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_B</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix C :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_C</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix D :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_D</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix E :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_E</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix F :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_F</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix G :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_G</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix H :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_H</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix I :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_I</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix J :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_J</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix K :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_K</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix L :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_L</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix M :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_M</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix N :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_N</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix O :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_O</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix P :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_P</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix Q :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_Q</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix R :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_R</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinan Matrix S :</span><span class="se">\n</span><span class="si">{</span><span class="n">det_S</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix A (Identitas):
-[[1 0]
- [0 1]]
-Matrix B (Identitas):
-[[1 0 0]
- [0 1 0]
- [0 0 1]]
-Matrix C :
-[[1 0 0]
- [0 0 1]
- [0 1 0]]
-Matrix D :
-[[0 1 0]
- [0 0 1]
- [1 0 0]]
-Matrix E :
-[[1 2 1]
- [3 1 2]
- [2 1 2]]
-Matrix F :
-[[3 1 2]
- [1 2 1]
- [2 1 2]]
-Matrix G :
-[[1 2 1]
- [2 4 2]
- [2 1 2]]
-Matrix H :
-[[1 2 2]
- [2 4 4]
- [1 2 3]]
-Matrix I :
-[[6 2 4]
- [2 4 2]
- [4 2 4]]
-Matrix J :
-[[4 4]
- [3 1]]
-Matrix K :
-[[6 8]
- [4 2]]
-Matrix L :
-[[4 4]
- [2 1]]
-Matrix M :
-[[8 4]
- [6 1]]
-Matrix N :
-[[4 1]
- [2 1]]
-Matrix O :
-[[7 5]
- [2 1]]
-Matrix P :
-[[1 2 3]
- [0 2 3]
- [0 0 3]]
-Matrix Q :
-[[2 1]
- [1 1]]
-Matrix R :
-[[1 1]
- [1 1]]
-Matrix S :
-[[3 3]
- [2 2]]
-
-Determinan Matrix A :
-1.0
-
-Determinan Matrix B :
-1.0
-
-Determinan Matrix C :
--1.0
-
-Determinan Matrix D :
-1.0
-
-Determinan Matrix E :
--3.000000000000001
-
-Determinan Matrix F :
-3.000000000000001
-
-Determinan Matrix G :
-0.0
-
-Determinan Matrix H :
-0.0
-
-Determinan Matrix I :
-24.000000000000014
-
-Determinan Matrix J :
--7.999999999999998
-
-Determinan Matrix K :
--19.999999999999996
-
-Determinan Matrix L :
--4.0
-
-Determinan Matrix M :
--15.999999999999998
-
-Determinan Matrix N :
-2.0
-
-Determinan Matrix O :
--2.9999999999999982
-
-Determinan Matrix P :
-6.0
-
-Determinan Matrix Q :
-1.0
-
-Determinan Matrix R :
-0.0
-
-Determinan Matrix S :
-0.0
-</pre></div>
-</div>
-</div>
-</div>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="kofaktor">
+<h1>Kofaktor<a class="headerlink" href="#kofaktor" title="Link to this heading">#</a></h1>
 <section id="tugas-kofaktor-matrix-ordo-5x5">
 <h2>Tugas Kofaktor matrix ordo 5x5<a class="headerlink" href="#tugas-kofaktor-matrix-ordo-5x5" title="Link to this heading">#</a></h2>
 <p>Matrix yang akan saya buat adalah matrix dengan ordo 5x5</p>
@@ -909,20 +662,20 @@ Hasil Invers Matrix adalah =
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Matrix-Invers.html"
+       href="determinan.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Matrix Invers</p>
+        <p class="prev-next-title">Determinant Matrix</p>
       </div>
     </a>
     <a class="right-next"
-       href="kofaktor.html"
+       href="transformationLinier.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Kofaktor</p>
+        <p class="prev-next-title">Transformation linier</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -942,7 +695,6 @@ Hasil Invers Matrix adalah =
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-sifat-matrix-determinan">Sifat-sifat Matrix determinan:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-kofaktor-matrix-ordo-5x5">Tugas Kofaktor matrix ordo 5x5</a></li>
 </ul>
   </nav></div>
